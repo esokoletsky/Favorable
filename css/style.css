@@ -1,22 +1,21 @@
+* {
+  box-sizing: border-box;
+}
+
+
  body {
         background: #555 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAB9JREFUeNpi/P//PwM6YGLAAuCCmpqacC2MRGsHCDAA+fIHfeQbO8kAAAAASUVORK5CYII=);
         font: 13px 'Lucida sans', Arial, Helvetica;
         color: #eee;
         text-align: center;
+        width: 100%;
     }
     
     a {
         color: #ccc;
     }
 
-    #bgimg {
-    width: 50%;
-    position: absolute;
-    margin-top: -15%;
-    margin-right: auto;
-    margin-left: auto;
-    
-}
+
     
     /*-------------------------------------*/
     
@@ -33,25 +32,29 @@
       zoom:1;
     }
 
-    /*-------------------------------------*/	
+    /*-------------------------------------*/   
     
     .form-wrapper {
-        width: 450px;
-        padding: 15px;
-        margin: 150px auto 50px auto;
-        background: #444;
-        background: rgba(0,0,0,.2);
-        -moz-border-radius: 10px;
-        -webkit-border-radius: 10px;
-        border-radius: 10px;
-        -moz-box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
-        -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
-        box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
+    position: absolute;
+    width: 480px;
+    padding: 15px;
+    margin: 0px auto 0px auto;
+    background: #444;
+    background: rgba(0,0,0,.2);
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
+    box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
+    top: 105px;
+    margin-left: 15px;
+
     }
     
     .form-wrapper input {
         width: 330px;
-        height: 20px;
+        height: 40px;
         padding: 10px 5px;
         float: left;    
         font: bold 15px 'lucida sans', 'trebuchet MS', 'Tahoma';
@@ -89,7 +92,7 @@
     }    
     
     .form-wrapper button {
-		overflow: visible;
+        overflow: visible;
         position: relative;
         float: right;
         border: 0;
@@ -107,9 +110,9 @@
         text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3);
     }   
       
-    .form-wrapper button:hover{		
+    .form-wrapper button:hover{     
         background: #e54040;
-    }	
+    }   
       
     .form-wrapper button:active,
     .form-wrapper button:focus{   
@@ -118,7 +121,7 @@
     
     .form-wrapper button:before {
         content: '';
-        position: relative;
+        position: absolute;
         border-width: 8px 8px 8px 0;
         border-style: solid solid solid none;
         border-color: transparent #d83c3c transparent;
@@ -149,3 +152,95 @@
   color:#d83c3c;
   text-decoration:none;
 }
+
+#bgImg {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px; 
+    width: 520px;
+    
+}
+
+#bgImg img {
+    width: 100%;
+    border-radius: 25px;
+    opacity: 0.4;
+
+
+}
+
+
+
+
+/* Grid measurements:
+ *
+ *   960px wide including 12 gutters (half gutters on both edges)
+ *
+ *   60px columns (12)
+ *   20px gutters (two half-gutters + 11 full gutters, so 12 total)
+ *
+ *
+ *   For smaller screens, we always want 20px of padding on either side,
+ *   so 960 + 20 + 20 => 1000px
+ *
+ **/
+.row {
+  width: 100%;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin: 0 auto;
+}
+
+/* Clearfix */
+.row::before,
+.row::after {
+  display: table;
+  content: '';
+}
+
+.row::after {
+  clear: both;
+}
+
+.col-3, .col-4, .col-6, .col-8 {
+  float: left;
+
+  /* Gutters:
+   * Each column is padded by half-a-gutter on each side,
+   *
+   * Half a gutter is 10px, 10/960 (context) = 1.041666%
+   *
+   */
+  padding-left: 1.04166666%;
+  padding-right: 1.04166666%;
+}
+
+/* Mobile defaults */
+/*.col-3, .col-4, .col-6, .col-12 {
+  width: 100%;
+}*/
+
+
+/* Non-mobile, grid */
+@media only screen and (min-width: 640px) {
+  /* 3 columns, 3/12 in % */
+  .col-1 {width: 8.33%;} 
+  .col-2 {width: 16.66%;} 
+  .col-3 {width: 25%;} 
+  .col-4 {width: 33.33%;} 
+  .col-5 {width: 41.66%;} 
+  .col-6 {width: 50%;} 
+  .col-7 {width: 58.33%;} 
+  .col-8 {width: 66.66%;} 
+  .col-9 {width: 75%;} 
+  .col-10 {width: 83.33%;} 
+  .col-11 {width: 91.66%;} 
+  .col-12 {width: 100%;}
+  body {
+    min-width: 600px;
+    max-width:99%;
+  } 
+}
+
+[class*="col-"] { margin: 0 auto; }
+

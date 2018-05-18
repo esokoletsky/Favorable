@@ -6,21 +6,26 @@
   <title>Search Box Practice #3</title>
   
   
-  
-      <link rel="stylesheet" href="css/style.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
 
   
 </head>
 
 <body>
+<div id="bgImg"> 
+	<img src="bgimg.jpg">
 
-  <form class="form-wrapper cf">
-  	<input type="text" placeholder="Search here..." required>
+	 <form class="form-wrapper cf" id="submit">
+  	<input type="text" placeholder="Search music, movies, and books" id="searchInput" required>
 	  <button type="submit">Search</button>
 </form>
+</div>	
+   
 
-<img src="bgimg.jpg" alt="background-image" id="bgimg">
-  
+ <div class="js-search-results"></div>
+
+<script src="index.js"></script>  
   
 
 </body>
