@@ -244,3 +244,7 @@
 
 [class*="col-"] { margin: 0 auto; }
 
+.rowStyle {
+    padding: 15px;
+    border: solid #444444 2px;
+}

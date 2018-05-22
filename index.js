@@ -24,7 +24,7 @@ let uTubeBaseUrl = 'https://www.youtube.com/embed/' + result.yID;
 let name = result.Name;
 let teaser = result.wTeaser;
     return `
-    <div class="row">
+    <div class="row rowStyle">
         <div class="col-4">
             <h3>${name}</h3>
             <div>${teaser}</div>
@@ -36,7 +36,6 @@ let teaser = result.wTeaser;
         </div>
     </div>    
     `;
-
 
 }
 
