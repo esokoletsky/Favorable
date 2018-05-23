@@ -8,7 +8,8 @@ function getDataFromApi(searchTerm, callback) {
             q: searchTerm,
             per_page: 5,
             k: apiKey,
-            verbose: 1
+            verbose: 1,
+            info: 1
         },
         dataType: 'jsonp',
         type: 'GET',
@@ -20,29 +21,53 @@ function getDataFromApi(searchTerm, callback) {
 
 function renderResults(result) {
 
-let uTubeBaseUrl = 'https://www.youtube.com/embed/' + result.yID;
-let name = result.Name;
-let teaser = result.wTeaser;
-    return `
-    <div class="row rowStyle">
-        <div class="col-4">
-            <h3>${name}</h3>
-            <div>${teaser}</div>
-        </div>
+    
+    let name = result.Name;
+    let teaser = result.wTeaser;
+    let type = result.Type;
 
-        <div class="col-8">
-            <iframe width="600" height="310" src="${uTubeBaseUrl}" 
-            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-    </div>    
-    `;
 
+    if(type == "movie") {
+        let uTubeBaseUrl = 'https://www.youtube.com/embed/' + result.yID;
+
+        return `
+        <div class="row rowStyle">
+            <div class="col-4">
+                <h3>${name}</h3>
+                <div>${teaser}</div>
+            </div>
+
+            <div class="col-8">
+                <iframe width="600" height="310" src="${uTubeBaseUrl}" 
+                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+        </div>    
+        `;
+    } 
+    else if (type == "book") {
+        let wUrl = result.wUrl;
+                return `
+        <div class="row rowStyle">
+            <div class="col-4">
+                <h3>${name}</h3>
+                <div>${teaser}</div>
+            </div>
+
+            <div class="col-8 book">
+            <a target="_blank" href="${wUrl}">
+                <iframe width="600" height="310" src="${wUrl}" 
+                frameborder="0"></iframe>
+                </a>
+            </div>
+        </div>    
+        `;
+    }
 }
 
 function displayData(data) {
     console.log(data);
     const results = data.Similar.Results.map((item) => renderResults(item));
-    $('.js-search-results').append(results);
+    $('.js-search-results').html(results);
 }
 
 function watchSubmit() {
@@ -55,4 +80,19 @@ function watchSubmit() {
   });
 }
 
-$(watchSubmit());
+$(function(){ 
+    watchSubmit();
+
+    $(".js-search-results").on("click", ".book", function(event){
+        event.preventDefault();
+        let url = $(this).attr("src");
+        let target = window.open(url, '_blank');
+
+        if(target) {
+            target.focus(); 
+        } else{
+            alert("please allow pop-ups for this website");
+        }
+    });
+});
+
