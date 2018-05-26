@@ -25,13 +25,13 @@ function renderResults(result) {
     let name = result.Name;
     let teaser = result.wTeaser;
     let type = result.Type;
-
+    let searchInput = $('#searchInput').val();
+    
 
     if(type == "movie") {
         let uTubeBaseUrl = 'https://www.youtube.com/embed/' + result.yID;
-
-        return `
-        <div class="row rowStyle">
+          
+        return `<div class="row rowStyle">
             <div class="col-4">
                 <h3>${name}</h3>
                 <div>${teaser}</div>
@@ -41,8 +41,8 @@ function renderResults(result) {
                 <iframe width="600" height="310" src="${uTubeBaseUrl}" 
                 frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
-        </div>    
-        `;
+        </div>`;   
+
     } 
     else if (type == "book") {
         let wUrl = result.wUrl;
@@ -65,9 +65,11 @@ function renderResults(result) {
 }
 
 function displayData(data) {
-    console.log(data);
     const results = data.Similar.Results.map((item) => renderResults(item));
+    let searchInput = $('#searchInput').val();
+    results.unshift(`<h3>Recommendations based on "${searchInput}"</h3>`);
     $('.js-search-results').html(results);
+    $('#searchInput').val("");
 }
 
 function watchSubmit() {
@@ -75,8 +77,8 @@ function watchSubmit() {
     event.preventDefault();
     const searchTarget = $(event.currentTarget).find('#searchInput');
     let search = searchTarget.val();
-    searchTarget.val('');
     getDataFromApi(search, displayData);
+
   });
 }
 
