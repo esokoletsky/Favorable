@@ -56,7 +56,7 @@ function renderResults(result) {
             <div class="col-8 book">
             <a target="_blank" href="${wUrl}">
                 <iframe width="600" height="310" src="${wUrl}" 
-                frameborder="0"></iframe>
+                frameborder="0" scrolling="no"></iframe>
                 </a>
             </div>
         </div>    
