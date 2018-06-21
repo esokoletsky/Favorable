@@ -1,4 +1,5 @@
-A Pen created at CodePen.io. You can find this one at https://codepen.io/nikhil/pen/GuAho.
+                                                  Favorable
+                                                  
+This app is designed to provide recommendations on movies, music, and books. The recommendations are based upon a user’s input of music, movies, and books.
 
- This is the search box by http://speckyboy.com/2012/02/15/how-to-build-a-stylish-css3-search-box/
-feature on : http://thecodeblock.com/search-box-tutorials-using-css3-jquery/
+The app was designed with HTML/CSS/JavaScript/jQuery.
