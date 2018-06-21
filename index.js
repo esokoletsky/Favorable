@@ -45,7 +45,7 @@ function renderResults(result) {
 
     } 
     else if (type == "book") {
-        let wUrl = result.wUrl;
+        let wUrl = result.wUrl.replace("http", "https");
                 return `
         <div class="row rowStyle">
             <div class="col-4">
