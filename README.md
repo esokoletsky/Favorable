@@ -7,7 +7,7 @@ https://esokoletsky.github.io/Favorable/
 The app was designed with HTML/CSS/JavaScript/jQuery.
 
 
-![alt text](Favorable/GetImage.jpg)
+![alt text](https://github.com/esokoletsky/Favorable/blob/master/GetImage.jpg)
 
 
 
