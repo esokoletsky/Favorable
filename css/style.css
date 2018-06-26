@@ -257,5 +257,12 @@
 
 
 .name {
-    font: #DB4345;
+    position: relative;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 35px;
+    color: #c43535;
+    font-weight: bold;
+    font-family: 'Bitter', serif;
 }
