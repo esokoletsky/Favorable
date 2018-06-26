@@ -54,10 +54,9 @@ function renderResults(result) {
             </div>
 
             <div class="col-8 book">
-            <a target="_blank" href="${wUrl}">
+            <a target="_blank" href="${wUrl}">Wiki Link</a>
                 <iframe width="600" height="310" src="${wUrl}" 
                 frameborder="0" scrolling="no"></iframe>
-                </a>
             </div>
         </div>    
         `;
@@ -65,6 +64,7 @@ function renderResults(result) {
 }
 
 function displayData(data) {
+    console.log(data);
     const results = data.Similar.Results.map((item) => renderResults(item));
     let searchInput = $('#searchInput').val();
     results.unshift(`<h3>Recommendations based on "${searchInput}"</h3>`);
@@ -85,7 +85,7 @@ function watchSubmit() {
 $(function(){ 
     watchSubmit();
 
-    $(".js-search-results").on("click", ".book", function(event){
+    /*$(".js-search-results").on("click", ".book", function(event){
         event.preventDefault();
         let url = $(this).attr("src");
         let target = window.open(url, '_blank');
@@ -95,6 +95,5 @@ $(function(){
         } else{
             alert("please allow pop-ups for this website");
         }
-    });
+    });*/
 });
-
