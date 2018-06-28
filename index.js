@@ -13,10 +13,19 @@ function getDataFromApi(searchTerm, callback) {
         },
         dataType: 'jsonp',
         type: 'GET',
-        success: callback
+        success: callback,
+        error: handleError
     };
 
     $.ajax(settings);
+
+}
+
+function handleError(jqxhr, textStatus, errorThrown){
+   console.log(errorThrown);
+   console.log(jqxhr);
+   console.log(textStatus);
+    alert("There was error with the search. Please try again later");
 }
 
 function renderResults(result) {
