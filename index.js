@@ -52,13 +52,14 @@ function renderResults(result) {
                 <h3>${name}</h3>
                 <div>${teaser}</div>
             </div>
-
+            <a href="${teaserw7}">
             <div class="col-8 book">
             <a target="_blank" href="${wUrl}">
                 <iframe width="600" height="310" src="${wUrl}" 
                 frameborder="0" scrolling="no"></iframe>
                 </a>
             </div>
+            </a>
         </div>    
         `;
     }
