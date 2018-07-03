@@ -13,10 +13,19 @@ function getDataFromApi(searchTerm, callback) {
         },
         dataType: 'jsonp',
         type: 'GET',
-        success: callback
+        success: callback,
+        error: handleError
     };
 
     $.ajax(settings);
+
+}
+
+function handleError(jqxhr, textStatus, errorThrown){
+   console.log(errorThrown);
+   console.log(jqxhr);
+   console.log(textStatus);
+    alert("There was error with the search. Please try again later");
 }
 
 function renderResults(result) {
@@ -26,7 +35,6 @@ function renderResults(result) {
     let teaser = result.wTeaser;
     let type = result.Type;
     let searchInput = $('#searchInput').val();
-    
 
     if(type == "movie") {
         let uTubeBaseUrl = 'https://www.youtube.com/embed/' + result.yID;
@@ -54,10 +62,9 @@ function renderResults(result) {
             </div>
             <a href="${teaserw7}">
             <div class="col-8 book">
-            <a target="_blank" href="${wUrl}">
+            <a target="_blank" href="${wUrl}">Wiki Link</a>
                 <iframe width="600" height="310" src="${wUrl}" 
                 frameborder="0" scrolling="no"></iframe>
-                </a>
             </div>
             </a>
         </div>    
@@ -66,12 +73,21 @@ function renderResults(result) {
 }
 
 function displayData(data) {
+
     const results = data.Similar.Results.map((item) => renderResults(item));
     let searchInput = $('#searchInput').val();
-    results.unshift(`<h3>Recommendations based on "${searchInput}"</h3>`);
+    console.log(results);
+        if(results.length < 1){
+            results.unshift(`<h3>Please refine search<h3>`);
+    }
+
+        else {
+            results.unshift(`<h3>Recommendations based on "${searchInput}"</h3>`);
+    }
+            
     $('.js-search-results').html(results);
     $('#searchInput').val("");
-}
+    }
 
 function watchSubmit() {
   $('#submit').submit(function(event){
@@ -86,7 +102,7 @@ function watchSubmit() {
 $(function(){ 
     watchSubmit();
 
-    $(".js-search-results").on("click", ".book", function(event){
+    /*$(".js-search-results").on("click", ".book", function(event){
         event.preventDefault();
         let url = $(this).attr("src");
         let target = window.open(url, '_blank');
@@ -96,6 +112,5 @@ $(function(){
         } else{
             alert("please allow pop-ups for this website");
         }
-    });
+    });*/
 });
-
