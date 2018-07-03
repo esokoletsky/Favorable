@@ -60,7 +60,7 @@ function renderResults(result) {
                 <h3>${name}</h3>
                 <div>${teaser}</div>
             </div>
-            <a href="${teaserw7}">
+            <a href="${teaser}">
             <div class="col-8 book">
             <a target="_blank" href="${wUrl}">Wiki Link</a>
                 <iframe width="600" height="310" src="${wUrl}" 
