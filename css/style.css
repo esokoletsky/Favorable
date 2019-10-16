@@ -1,38 +1,40 @@
 * {
-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 
 body {
-    background: black;
-    font: 13px 'Lucida sans', Arial, Helvetica;
-    color: #eee;
+    background: rgba(0, 24, 93, 0.3);
+    font: 15px 'Lucida sans', Arial, Helvetica;
+    color: black;
     text-align: center;
     width: 100%;
-    }
+    line-height: 25px
+}
 
-    a {
-    color: #ccc;
+a {
+    color: rgb(58, 57, 57);
 }
 
 
 
 /*-------------------------------------*/
 
-.cf:before, .cf:after{
-    content:"";
-    display:table;
+.cf:before,
+.cf:after {
+    content: "";
+    display: table;
 }
 
-.cf:after{
-    clear:both;
+.cf:after {
+    clear: both;
 }
 
-.cf{
-    zoom:1;
+.cf {
+    zoom: 1;
 }
 
-/*-------------------------------------*/   
+/*-------------------------------------*/
 
 .form-wrapper {
     position: absolute;
@@ -40,15 +42,15 @@ body {
     padding: 15px;
     margin: 0px auto 0px auto;
     background: #444;
-    background: rgba(0,0,0,.2);
+    background: rgba(0, 0, 0, .2);
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    -moz-box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
-    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
-    box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
-    top: 105px;
-    margin-left: 50px;
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .4) inset, 0 1px 0 rgba(255, 255, 255, .2);
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .4) inset, 0 1px 0 rgba(255, 255, 255, .2);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .4) inset, 0 1px 0 rgba(255, 255, 255, .2);
+    top: 160px;
+    margin-left: 280px;
 
 }
 
@@ -56,21 +58,21 @@ body {
     width: 330px;
     height: 40px;
     padding: 10px 5px;
-    float: left;    
+    float: left;
     font: bold 15px 'lucida sans', 'trebuchet MS', 'Tahoma';
     border: 0;
     background: #eee;
     -moz-border-radius: 3px 0 0 3px;
     -webkit-border-radius: 3px 0 0 3px;
-    border-radius: 3px 0 0 3px;      
+    border-radius: 3px 0 0 3px;
 }
 
 .form-wrapper input:focus {
     outline: 0;
     background: #fff;
-    -moz-box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
-    -webkit-box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
-    box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
+    -moz-box-shadow: 0 0 2px rgba(0, 0, 0, .8) inset;
+    -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, .8) inset;
+    box-shadow: 0 0 2px rgba(0, 0, 0, .8) inset;
 }
 
 .form-wrapper input::-webkit-input-placeholder {
@@ -89,7 +91,7 @@ body {
     color: #999;
     font-weight: normal;
     font-style: italic;
-}    
+}
 
 .form-wrapper button {
     overflow: visible;
@@ -106,17 +108,17 @@ body {
     background: #d83c3c;
     -moz-border-radius: 0 3px 3px 0;
     -webkit-border-radius: 0 3px 3px 0;
-    border-radius: 0 3px 3px 0;      
-    text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3);
-}   
+    border-radius: 0 3px 3px 0;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, .3);
+}
 
-.form-wrapper button:hover{     
+.form-wrapper button:hover {
     background: #e54040;
-}   
+}
 
 .form-wrapper button:active,
-.form-wrapper button:focus{   
-    background: #c42f2f;    
+.form-wrapper button:focus {
+    background: #c42f2f;
 }
 
 .form-wrapper button:before {
@@ -129,49 +131,51 @@ body {
     left: -6px;
 }
 
-.form-wrapper button:hover:before{
+.form-wrapper button:hover:before {
     border-right-color: #e54040;
 }
 
-.form-wrapper button:focus:before{
+.form-wrapper button:focus:before {
     border-right-color: #c42f2f;
-}    
+}
 
 .form-wrapper button::-moz-focus-inner {
     border: 0;
     padding: 0;
 }
-.byline p{
-    text-align:center;
-    color:#c6c6c6;
+
+.byline p {
+    text-align: center;
+    color: #c6c6c6;
     font: bold 18px Arial, Helvetica, Sans-serif;
-    text-shadow: 0 2px 3px rgba(0,0,0,0.1);
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
 }
 
-.byline p a{
-    color:#d83c3c;
-    text-decoration:none;
+.byline p a {
+    color: #d83c3c;
+    text-decoration: none;
 }
 
 #bgImg {
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 15px; 
-    width: 590px;
+    margin-bottom: 15px;
+    width: 795px;
 
 }
 
 #bgImg img {
     width: 100%;
     border-radius: 25px;
-    opacity: 0.4;
+    opacity: 0.75;
 
 
 }
 
 .rowStyle {
     padding: 15px;
-    border: solid #444444 2px;
+    border: solid #4f4747 2px;
+    border-radius: 6px;
 }
 
 .title-font {
@@ -192,3 +196,8 @@ body {
     font-family: 'Bitter', serif;
 }
 
+.favorable-logo {
+    position: relative;
+    bottom: 385px;
+    left: 275px;
+}
